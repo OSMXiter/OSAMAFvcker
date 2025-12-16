@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oussama Haffari | Cyber Security Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0d47a1;
+            --light-blue: #1976d2;
+            --dark-blue: #002171;
+            --white: #ffffff;
+            --off-white: #f5f5f5;
+            --text-color: #333333;
+            --shadow: 0 4px 12px rgba(13, 71, 161, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--light-blue);
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            background-color: var(--off-white);
+            border: 1px solid var(--light-blue);
+            border-radius: 4px;
+            color: var(--primary-blue);
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .hats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .hat {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 180px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hat.white {
+            border-top: 5px solid var(--white);
+        }
+
+        .hat.black {
+            border-top: 5px solid #000;
+        }
+
+        .hat i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Main Content */
+        section {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--light-blue);
+            display: inline-block;
+        }
+
+        /* Journey Section */
+        .journey-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .journey-item {
+            padding: 20px;
+            border-left: 4px solid var(--light-blue);
+            background-color: var(--off-white);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .journey-item h3 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .journey-item .year {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        /* Skills & Preferences */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background-color: var(--off-white);
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid var(--light-blue);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category h3 i {
+            margin-right: 10px;
+            color: var(--primary-blue);
+        }
+
+        .love-item, .hate-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .love-item i {
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+
+        .hate-item i {
+            color: #f44336;
+            margin-right: 10px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-details {
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: var(--off-white);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .contact-text h3 {
+            color: var(--dark-blue);
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-quote {
+            font-style: italic;
+            margin-bottom: 30px;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .journey-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .language-switcher {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            section {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Oussama Haffari</span>
+                </div>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">English</button>
+                    <button class="lang-btn" data-lang="es">Español</button>
+                    <button class="lang-btn" data-lang="fr">Français</button>
+                    <button class="lang-btn" data-lang="ar">العربية</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="name" data-translate="name">Oussama Haffari</h1>
+            <div class="subtitle" data-translate="title">Cyber Security Specialist & Developer</div>
+            <p class="tagline" data-translate="tagline">22-year-old Moroccan-Spanish cybersecurity professional with dual expertise in ethical and penetration testing. Currently pursuing a baccalaureate in Morocco while working in Mallorca, Spain.</p>
+            
+            <div class="hats-container">
+                <div class="hat white">
+                    <i class="fas fa-user-secret"></i>
+                    <h3 data-translate="white_hat">White Hat</h3>
+                    <p data-translate="white_desc">Ethical Security</p>
+                </div>
+                <div class="hat black">
+                    <i class="fas fa-mask"></i>
+                    <h3 data-translate="black_hat">Black Hat</h3>
+                    <p data-translate="black_desc">Penetration Testing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Journey Section -->
+        <section id="journey">
+            <h2 class="section-title" data-translate="journey_title">My Cyber Journey</h2>
+            <div class="journey-content">
+                <div class="journey-item">
+                    <span class="year">2016</span>
+                    <h3 data-translate="journey1_title">The Beginning</h3>
+                    <p data-translate="journey1_desc">My journey began when my Facebook account was banned. This incident sparked my curiosity about technology and cybersecurity, leading me to explore how digital systems work and how they can be secured or compromised.</p>
+                </div>
+                <div class="journey-item">
+                    <span class="year">2017-2020</span>
+                    <h3 data-translate="journey2_title">Skill Development</h3>
+                    <p data-translate="journey2_desc">I immersed myself in learning Python, networking fundamentals, and security principles. I practiced on various platforms and began to understand both defensive and offensive security approaches.</p>
+                </div>
+                <div class="journey-item">
+                    <span class="year">2025</span>
+                    <h3 data-translate="journey3_title">Professional Growth</h3>
+                    <p data-translate="journey3_desc">Currently pursuing a baccalaureate in Morocco to obtain certification that will enhance my career prospects while working in cybersecurity in Mallorca, Spain.</p>
+                </div>
+                <div class="journey-item">
+                    <span class="year">Future</span>
+                    <h3 data-translate="journey4_title">Career Aspirations</h3>
+                    <p data-translate="journey4_desc">My goal is to work with leading cybersecurity companies like CrowdStrike, Palo Alto Networks, or Check Point Software Technologies, contributing to innovative security solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Preferences Section -->
+        <section id="skills">
+            <h2 class="section-title" data-translate="skills_title">Skills & Preferences</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> <span data-translate="dev_title">Development</span></h3>
+                    <div class="love-item">
+                        <i class="fas fa-heart"></i>
+                        <div>
+                            <strong data-translate="python">Python</strong>
+                            <p data-translate="python_desc">My primary language for automation, security tools, and backend development</p>
+                        </div>
+                    </div>
+                    <div class="love-item">
+                        <i class="fas fa-heart"></i>
+                        <div>
+                            <strong data-translate="cyber_tools">Cybersecurity Tools</strong>
+                            <p data-translate="cyber_tools_desc">Metasploit, Wireshark, Nmap, Burp Suite, and custom security scripts</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-thumbs-up"></i> <span data-translate="love_title">I Love</span></h3>
+                    <div class="love-item">
+                        <i class="fas fa-heart"></i>
+                        <div>
+                            <strong data-translate="linux">Linux</strong>
+                            <p data-translate="linux_desc">My preferred environment for security testing and development</p>
+                        </div>
+                    </div>
+                    <div class="love-item">
+                        <i class="fas fa-heart"></i>
+                        <div>
+                            <strong data-translate="open_source">Open Source</strong>
+                            <p data-translate="open_source_desc">Contributing to and utilizing open-source security projects</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-thumbs-down"></i> <span data-translate="hate_title">I Dislike</span></h3>
+                    <div class="hate-item">
+                        <i class="fas fa-times-circle"></i>
+                        <div>
+                            <strong data-translate="windows">Windows</strong>
+                            <p data-translate="windows_desc">Limited transparency and control compared to Linux systems</p>
+                        </div>
+                    </div>
+                    <div class="hate-item">
+                        <i class="fas fa-times-circle"></i>
+                        <div>
+                            <strong data-translate="microsoft">Microsoft</strong>
+                            <p data-translate="microsoft_desc">Proprietary ecosystems that limit security customization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background-color: var(--off-white); border-radius: 8px; border-left: 4px solid var(--primary-blue);">
+                <h3 style="color: var(--dark-blue); margin-bottom: 10px;" data-translate="goal_title">Current Goal</h3>
+                <p data-translate="goal_desc">I'm completing my baccalaureate in Morocco to obtain the necessary certification that will allow me to advance my cybersecurity career with top companies in Mallorca, Spain. I'm particularly interested in working with leading security firms like CrowdStrike, Palo Alto Networks, or Fortinet.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title" data-translate="contact_title">Connect With Me</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p data-translate="contact_desc">Feel free to reach out to me on any of these platforms. I'm always open to discussing cybersecurity, collaboration opportunities, or innovative projects.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Instagram</h3>
+                                <p>@osm.py</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Twitter</h3>
+                                <p>@osmxiter</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>GitHub</h3>
+                                <p>@OSMXiter</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="flex: 1; min-width: 300px;">
+                    <div style="background-color: var(--off-white); padding: 25px; border-radius: 8px; height: 100%;">
+                        <h3 style="color: var(--dark-blue); margin-bottom: 15px;" data-translate="location_title">Location & Work</h3>
+                        <p data-translate="location_desc">I'm currently based in <strong>Morocco</strong> where I'm completing my baccalaureate studies, while working in <strong>Mallorca, Spain</strong> in the cybersecurity field.</p>
+                        
+                        <div style="margin-top: 25px;">
+                            <h4 style="color: var(--dark-blue); margin-bottom: 10px;" data-translate="companies_title">Top Cybersecurity Companies I Admire</h4>
+                            <ul style="list-style-type: none; padding-left: 0;">
+                                <li style="padding: 8px 0; border-bottom: 1px dashed #ccc;"><i class="fas fa-shield-alt" style="color: var(--light-blue); margin-right: 10px;"></i> CrowdStrike</li>
+                                <li style="padding: 8px 0; border-bottom: 1px dashed #ccc;"><i class="fas fa-shield-alt" style="color: var(--light-blue); margin-right: 10px;"></i> Palo Alto Networks</li>
+                                <li style="padding: 8px 0; border-bottom: 1px dashed #ccc;"><i class="fas fa-shield-alt" style="color: var(--light-blue); margin-right: 10px;"></i> Check Point Software Technologies</li>
+                                <li style="padding: 8px 0; border-bottom: 1px dashed #ccc;"><i class="fas fa-shield-alt" style="color: var(--light-blue); margin-right: 10px;"></i> Fortinet</li>
+                                <li style="padding: 8px 0;"><i class="fas fa-shield-alt" style="color: var(--light-blue); margin-right: 10px;"></i> Darktrace</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-shield-alt"></i> Oussama Haffari
+            </div>
+            <p class="footer-quote" data-translate="footer_quote">"In cybersecurity, the only constant is change. Embrace the challenge of protecting digital frontiers."</p>
+            <div class="copyright">
+                <p data-translate="copyright">© 2025 Oussama Haffari. All rights reserved. | Moroccan-Spanish Cybersecurity Specialist</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translation data
+        const translations = {
+            en: {
+                name: "Oussama Haffari",
+                title: "Cyber Security Specialist & Developer",
+                tagline: "22-year-old Moroccan-Spanish cybersecurity professional with dual expertise in ethical and penetration testing. Currently pursuing a baccalaureate in Morocco while working in Mallorca, Spain.",
+                white_hat: "White Hat",
+                white_desc: "Ethical Security",
+                black_hat: "Black Hat",
+                black_desc: "Penetration Testing",
+                journey_title: "My Cyber Journey",
+                journey1_title: "The Beginning",
+                journey1_desc: "My journey began when my Facebook account was banned. This incident sparked my curiosity about technology and cybersecurity, leading me to explore how digital systems work and how they can be secured or compromised.",
+                journey2_title: "Skill Development",
+                journey2_desc: "I immersed myself in learning Python, networking fundamentals, and security principles. I practiced on various platforms and began to understand both defensive and offensive security approaches.",
+                journey3_title: "Professional Growth",
+                journey3_desc: "Currently pursuing a baccalaureate in Morocco to obtain certification that will enhance my career prospects while working in cybersecurity in Mallorca, Spain.",
+                journey4_title: "Career Aspirations",
+                journey4_desc: "My goal is to work with leading cybersecurity companies like CrowdStrike, Palo Alto Networks, or Check Point Software Technologies, contributing to innovative security solutions.",
+                skills_title: "Skills & Preferences",
+                dev_title: "Development",
+                python: "Python",
+                python_desc: "My primary language for automation, security tools, and backend development",
+                cyber_tools: "Cybersecurity Tools",
+                cyber_tools_desc: "Metasploit, Wireshark, Nmap, Burp Suite, and custom security scripts",
+                love_title: "I Love",
+                linux: "Linux",
+                linux_desc: "My preferred environment for security testing and development",
+                open_source: "Open Source",
+                open_source_desc: "Contributing to and utilizing open-source security projects",
+                hate_title: "I Dislike",
+                windows: "Windows",
+                windows_desc: "Limited transparency and control compared to Linux systems",
+                microsoft: "Microsoft",
+                microsoft_desc: "Proprietary ecosystems that limit security customization",
+                goal_title: "Current Goal",
+                goal_desc: "I'm completing my baccalaureate in Morocco to obtain the necessary certification that will allow me to advance my cybersecurity career with top companies in Mallorca, Spain. I'm particularly interested in working with leading security firms like CrowdStrike, Palo Alto Networks, or Fortinet.",
+                contact_title: "Connect With Me",
+                contact_desc: "Feel free to reach out to me on any of these platforms. I'm always open to discussing cybersecurity, collaboration opportunities, or innovative projects.",
+                location_title: "Location & Work",
+                location_desc: "I'm currently based in Morocco where I'm completing my baccalaureate studies, while working in Mallorca, Spain in the cybersecurity field.",
+                companies_title: "Top Cybersecurity Companies I Admire",
+                footer_quote: "\"In cybersecurity, the only constant is change. Embrace the challenge of protecting digital frontiers.\"",
+                copyright: "© 2025 Oussama Haffari. All rights reserved. | Moroccan-Spanish Cybersecurity Specialist"
+            },
+            es: {
+                name: "Oussama Haffari",
+                title: "Especialista en Ciberseguridad y Desarrollador",
+                tagline: "Profesional marroquí-español de ciberseguridad de 22 años con doble experiencia en pruebas éticas y de penetración. Actualmente cursando el bachillerato en Marruecos mientras trabaja en Mallorca, España.",
+                white_hat: "Sombrero Blanco",
+                white_desc: "Seguridad Ética",
+                black_hat: "Sombrero Negro",
+                black_desc: "Pruebas de Penetración",
+                journey_title: "Mi Viaje en Ciberseguridad",
+                journey1_title: "El Comienzo",
+                journey1_desc: "Mi viaje comenzó cuando me bloquearon la cuenta de Facebook. Este incidente despertó mi curiosidad sobre la tecnología y la ciberseguridad, llevándome a explorar cómo funcionan los sistemas digitales y cómo pueden protegerse o comprometerse.",
+                journey2_title: "Desarrollo de Habilidades",
+                journey2_desc: "Me sumergí en aprender Python, fundamentos de redes y principios de seguridad. Practiqué en varias plataformas y comencé a entender tanto los enfoques de seguridad defensivos como ofensivos.",
+                journey3_title: "Crecimiento Profesional",
+                journey3_desc: "Actualmente cursando el bachillerato en Marruecos para obtener la certificación que mejorará mis perspectivas profesionales mientras trabajo en ciberseguridad en Mallorca, España.",
+                journey4_title: "Aspiraciones Profesionales",
+                journey4_desc: "Mi objetivo es trabajar con empresas líderes en ciberseguridad como CrowdStrike, Palo Alto Networks o Check Point Software Technologies, contribuyendo a soluciones de seguridad innovadoras.",
+                skills_title: "Habilidades y Preferencias",
+                dev_title: "Desarrollo",
+                python: "Python",
+                python_desc: "Mi lenguaje principal para automatización, herramientas de seguridad y desarrollo backend",
+                cyber_tools: "Herramientas de Ciberseguridad",
+                cyber_tools_desc: "Metasploit, Wireshark, Nmap, Burp Suite y scripts de seguridad personalizados",
+                love_title: "Me Gusta",
+                linux: "Linux",
+                linux_desc: "Mi entorno preferido para pruebas de seguridad y desarrollo",
+                open_source: "Código Abierto",
+                open_source_desc: "Contribuir y utilizar proyectos de seguridad de código abierto",
+                hate_title: "No Me Gusta",
+                windows: "Windows",
+                windows_desc: "Transparencia y control limitados en comparación con los sistemas Linux",
+                microsoft: "Microsoft",
+                microsoft_desc: "Ecosistemas propietarios que limitan la personalización de seguridad",
+                goal_title: "Objetivo Actual",
+                goal_desc: "Estoy completando mi bachillerato en Marruecos para obtener la certificación necesaria que me permitirá avanzar en mi carrera de ciberseguridad con las principales empresas en Mallorca, España. Me interesa especialmente trabajar con empresas líderes en seguridad como CrowdStrike, Palo Alto Networks o Fortinet.",
+                contact_title: "Conéctate Conmigo",
+                contact_desc: "No dudes en contactarme en cualquiera de estas plataformas. Siempre estoy abierto a discutir ciberseguridad, oportunidades de colaboración o proyectos innovadores.",
+                location_title: "Ubicación y Trabajo",
+                location_desc: "Actualmente resido en Marruecos donde estoy completando mis estudios de bachillerato, mientras trabajo en Mallorca, España en el campo de la ciberseguridad.",
+                companies_title: "Principales Empresas de Ciberseguridad que Admiro",
+                footer_quote: "\"En ciberseguridad, la única constante es el cambio. Acepta el desafío de proteger las fronteras digitales.\"",
+                copyright: "© 2025 Oussama Haffari. Todos los derechos reservados. | Especialista en Ciberseguridad Marroquí-Español"
+            },
+            fr: {
+                name: "Oussama Haffari",
+                title: "Spécialiste en Cybersécurité et Développeur",
+                tagline: "Professionnel maroco-espagnol de la cybersécurité de 22 ans avec une double expertise en tests éthiques et de pénétration. Actuellement en train de préparer un baccalauréat au Maroc tout en travaillant à Majorque, Espagne.",
+                white_hat: "Chapeau Blanc",
+                white_desc: "Sécurité Éthique",
+                black_hat: "Chapeau Noir",
+                black_desc: "Tests de Pénétration",
+                journey_title: "Mon Parcours en Cybersécurité",
+                journey1_title: "Le Début",
+                journey1_desc: "Mon parcours a commencé lorsque mon compte Facebook a été banni. Cet incident a suscité ma curiosité pour la technologie et la cybersécurité, me conduisant à explorer le fonctionnement des systèmes numériques et comment ils peuvent être sécurisés ou compromis.",
+                journey2_title: "Développement des Compétences",
+                journey2_desc: "Je me suis plongé dans l'apprentissage de Python, des fondamentaux du réseau et des principes de sécurité. J'ai pratiqué sur diverses plateformes et commencé à comprendre les approches de sécurité défensives et offensives.",
+                journey3_title: "Croissance Professionnelle",
+                journey3_desc: "Actuellement en train de préparer un baccalauréat au Maroc pour obtenir une certification qui améliorera mes perspectives de carrière tout en travaillant dans la cybersécurité à Majorque, Espagne.",
+                journey4_title: "Aspirations Professionnelles",
+                journey4_desc: "Mon objectif est de travailler avec des entreprises leaders en cybersécurité comme CrowdStrike, Palo Alto Networks ou Check Point Software Technologies, en contribuant à des solutions de sécurité innovantes.",
+                skills_title: "Compétences et Préférences",
+                dev_title: "Développement",
+                python: "Python",
+                python_desc: "Mon langage principal pour l'automatisation, les outils de sécurité et le développement backend",
+                cyber_tools: "Outils de Cybersécurité",
+                cyber_tools_desc: "Metasploit, Wireshark, Nmap, Burp Suite et des scripts de sécurité personnalisés",
+                love_title: "J'Aime",
+                linux: "Linux",
+                linux_desc: "Mon environnement préféré pour les tests de sécurité et le développement",
+                open_source: "Open Source",
+                open_source_desc: "Contribuer et utiliser des projets de sécurité open source",
+                hate_title: "Je N'Aime Pas",
+                windows: "Windows",
+                windows_desc: "Transparence et contrôle limités par rapport aux systèmes Linux",
+                microsoft: "Microsoft",
+                microsoft_desc: "Écosystèmes propriétaires qui limitent la personnalisation de la sécurité",
+                goal_title: "Objectif Actuel",
+                goal_desc: "Je termine mon baccalauréat au Maroc pour obtenir la certification nécessaire qui me permettra de faire progresser ma carrière en cybersécurité avec les meilleures entreprises de Majorque, en Espagne. Je suis particulièrement intéressé par le travail avec des entreprises leaders en sécurité comme CrowdStrike, Palo Alto Networks ou Fortinet.",
+                contact_title: "Connectez-vous Avec Moi",
+                contact_desc: "N'hésitez pas à me contacter sur l'une de ces plateformes. Je suis toujours ouvert à discuter de cybersécurité, d'opportunités de collaboration ou de projets innovants.",
+                location_title: "Localisation et Travail",
+                location_desc: "Je suis actuellement basé au Maroc où je termine mes études de baccalauréat, tout en travaillant à Majorque, Espagne dans le domaine de la cybersécurité.",
+                companies_title: "Principales Entreprises de Cybersécurité que J'Admire",
+                footer_quote: "\"En cybersécurité, la seule constante est le changement. Acceptez le défi de protéger les frontières numériques.\"",
+                copyright: "© 2025 Oussama Haffari. Tous droits réservés. | Spécialiste en Cybersécurité Maroco-Espagnol"
+            },
+            ar: {
+                name: "أسامة حفاري",
+                title: "أخصائي أمن إلكتروني ومطور",
+                tagline: "محترف أمن إلكتروني مغربي-إسباني يبلغ من العمر 22 عامًا يتمتع بخبرة مزدوجة في الاختبارات الأخلاقية واختبارات الاختراق. يتابع حاليًا شهادة البكالوريا في المغرب أثناء العمل في مايوركا، إسبانيا.",
+                white_hat: "القبعة البيضاء",
+                white_desc: "الأمن الأخلاقي",
+                black_hat: "القبعة السوداء",
+                black_desc: "اختبارات الاختراق",
+                journey_title: "رحلتي في الأمن الإلكتروني",
+                journey1_title: "البداية",
+                journey1_desc: "بدأت رحلتي عندما تم حظر حسابي على الفيسبوك. أثار هذا الحادث فضولي حول التكنولوجيا والأمن الإلكتروني، مما دفعني لاستكشاف كيفية عمل الأنظمة الرقمية وكيف يمكن تأمينها أو اختراقها.",
+                journey2_title: "تطوير المهارات",
+                journey2_desc: "انغمست في تعلم لغة بايثون، وأساسيات الشبكات، ومبادئ الأمان. تدربت على منصات مختلفة وبدأت في فهم كل من نهج الأمان الدفاعي والهجومي.",
+                journey3_title: "النمو المهني",
+                journey3_desc: "أتابع حاليًا شهادة البكالوريا في المغرب للحصول على الشهادة التي ستعزز آفاقي المهنية أثناء العمل في مجال الأمن الإلكتروني في مايوركا، إسبانيا.",
+                journey4_title: "الطموحات المهنية",
+                journey4_desc: "هدفي هو العمل مع شركات الأمن الإلكتروني الرائدة مثل كراود سترايك، بالو ألتو نتوركس، أو تشيك بوينت سوفت وير تكنولوجيز، والمساهمة في حلول أمنية مبتكرة.",
+                skills_title: "المهارات والتفضيلات",
+                dev_title: "التطوير",
+                python: "بايثون",
+                python_desc: "لغتي الرئيسية للأتمتة وأدوات الأمان وتطوير الواجهات الخلفية",
+                cyber_tools: "أدوات الأمن الإلكتروني",
+                cyber_tools_desc: "ميتاسبلويت، وايرشارك، إن ماب، بورب سويت، ونصوص أمنية مخصصة",
+                love_title: "أحب",
+                linux: "لينكس",
+                linux_desc: "بيئتي المفضلة لاختبار الأمان والتطوير",
+                open_source: "المصدر المفتوح",
+                open_source_desc: "المساهمة في واستخدام مشاريع الأمن مفتوحة المصدر",
+                hate_title: "لا أحب",
+                windows: "ويندوز",
+                windows_desc: "شفافية وسيطرة محدودة مقارنة بأنظمة لينكس",
+                microsoft: "مايكروسوفت",
+                microsoft_desc: "أنظمة مغلقة المصدر تحد من تخصيص الأمان",
+                goal_title: "الهدف الحالي",
+                goal_desc: "أكمل حاليًا شهادة البكالوريا في المغرب للحصول على الشهادة اللازمة التي تسمح لي بتطوير مسيرتي المهنية في الأمن الإلكتروني مع أفضل الشركات في مايوركا، إسبانيا. أنا مهتم بشكل خاص بالعمل مع شركات الأمن الر
